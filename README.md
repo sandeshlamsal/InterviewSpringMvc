@@ -1,4 +1,20 @@
 # InterviewSpringMvc
+
+Before Spring (servlet and Context)
+-------------
+Method getServletContextName() returns the name of the "web application". 
+That means, "ServletContext" is nothing but "web application". Ok.
+A ServletContext is the runtime representation of the web application.
+A ServletContextListener gets notified when a Web App is started or stopped. That way you can run tasks automatically that need to be run when the web app starts or stops.
+
+applicationContext.xml defines the beans that are shared among all the servlets. If your application have more than one servlet, then defining the common resources in the applicationContext.xml would make more sense.
+
+spring-servlet.xml defines the beans that are related only to that servlet. Here it is the dispatcher servlet. So, your Spring MVC controllers must be defined in this file.
+
+There is nothing wrong in defining all the beans in the spring-servlet.xml if you are running only one servlet in your web application.
+
+
+
 why sprig popular ?
 dependeny injection or Inversion of Control, can use classes that you want just by autowiring
 don't have to use the new keyword, but with some <xml> file or annotation based we can use the required class
