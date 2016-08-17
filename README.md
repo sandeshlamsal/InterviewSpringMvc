@@ -2,6 +2,12 @@
 
 Before Spring (servlet and Context)
 -------------
+https://en.wikipedia.org/wiki/Java_servlet#Introduction  (Servlet Technology)
+
+A Java servlet is a Java program that extends the capabilities of a server. Although servlets can respond to any types of requests, they most commonly implement applications hosted on Web servers.
+
+To deploy and run a servlet, a web container must be used. A web container (also known as a servlet container) is essentially the component of a web server that interacts with the servlets. The web container is responsible for managing the lifecycle of servlets, mapping a URL to a particular servlet and ensuring that the URL requester has the correct access rights.
+
 Method getServletContextName() returns the name of the "web application". 
 That means, "ServletContext" is nothing but "web application". Ok.
 A ServletContext is the runtime representation of the web application.
