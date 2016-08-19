@@ -3,6 +3,7 @@
 Before Spring (servlet and Context)
 -------------
 https://en.wikipedia.org/wiki/Java_servlet#Introduction  (Servlet Technology)
+http://howtodoinjava.com/spring/spring-mvc/spring-mvc-interview-questions-with-answers/
 
 A Java servlet is a Java program that extends the capabilities of a server. Although servlets can respond to any types of requests, they most commonly implement applications hosted on Web servers.
 
@@ -78,6 +79,30 @@ public class EagerInitializedSingleton {
         return instance;
     }
 }
+
+DISPATCHER SERVLET
+-----------------
+After receiving an HTTP request, DispatcherServlet consults the HandlerMapping (configuration files) to call the appropriate Controller. The Controller takes the request and calls the appropriate service methods and set model data and then returns view name to the DispatcherServlet. The DispatcherServlet will take help from ViewResolver to pickup the defined view for the request. Once view is finalized, The DispatcherServlet passes the model data to the view which is finally rendered on the browser.
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+   
+  <servlet>
+        <servlet-name>spring</servlet-name>
+            <servlet-class>
+                org.springframework.web.servlet.DispatcherServlet
+            </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>spring</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+     
+</web-app>
+By default, DispatcherServlet loads its configuration file using <servlet_name>-servlet.xml. E.g. with above web.xml file, DispatcherServlet will try to find spring-servlet.xml file in classpath
+
 
 
 
