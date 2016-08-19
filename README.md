@@ -103,7 +103,46 @@ After receiving an HTTP request, DispatcherServlet consults the HandlerMapping (
 </web-app>
 By default, DispatcherServlet loads its configuration file using <servlet_name>-servlet.xml. E.g. with above web.xml file, DispatcherServlet will try to find spring-servlet.xml file in classpath
 
+How can we use Spring to create Restful Web Service returning JSON response?
+-----------------------------------------------------------------------------
 
+For adding JSON support to your spring application, you will need to add Jackson dependency in first step.
+
+<!-- Jackson JSON Processor -->
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.4.1</version>
+</dependency>
+Now you are ready to return JSON response from your MVC controller. All you have to do is return JAXB annotated object from method and use @ResponseBody annotation on this return type.
+
+@Controller
+public class EmployeeRESTController
+{
+    @RequestMapping(value = "/employees")
+    public @ResponseBody EmployeeListVO getAllEmployees()
+    {
+        EmployeeListVO employees = new EmployeeListVO();
+        //Add employees
+        return employees;
+    }
+}
+Alternatively, you can use @RestController annotation in place of @Controller annotation. This will remove the need to using @ResponseBody.
+
+@RestController = @Controller + @ResponseBody
+So you can write the above controller as below.
+
+@RestController
+public class EmployeeRESTController
+{
+    @RequestMapping(value = "/employees")
+    public EmployeeListVO getAllEmployees()
+    {
+        EmployeeListVO employees = new EmployeeListVO();
+        //Add employees
+        return employees;
+    }
+}
 
 
 AOP
