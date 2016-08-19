@@ -58,6 +58,28 @@ to make the bean stateful, for each request of this bean new instance of this be
 using prototype
 <bean id="state" class="com.foo.SomeState" scope="prototype">
 
+How a singleton class can be acthieved ?
+-----------------------------------------
+by declaring 3 steps
+-private constuctor without any parameters
+-private satic final variable of class 
+-public static method so that can access the method
+
+package com.journaldev.singleton;
+
+public class EagerInitializedSingleton {
+    
+    private static final EagerInitializedSingleton instance = new EagerInitializedSingleton();
+    
+    //private constructor to avoid client applications to use constructor
+    private EagerInitializedSingleton(){}
+
+    public static EagerInitializedSingleton getInstance(){
+        return instance;
+    }
+}
+
+
 
 AOP
 ---
